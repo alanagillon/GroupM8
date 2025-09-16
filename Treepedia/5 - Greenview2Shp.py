@@ -45,7 +45,7 @@ def Read_GSVinfo_Text(GVI_Res_txt):
             continue
         
         elif float(greenView) < 0:
-            print greenView
+            print(greenView)
             continue
         
         # remove the duplicated panorama id
@@ -136,8 +136,7 @@ def CreatePointFeature_ogr(outputShapefile,LonLst,LatLst,panoIDlist,panoDateList
     
     """
 
-    import ogr
-    import osr
+    from osgeo import ogr, osr
 
     # create shapefile and add the above chosen random points to the shapfile
     driver = ogr.GetDriverByName("ESRI Shapefile")
@@ -153,7 +152,7 @@ def CreatePointFeature_ogr(outputShapefile,LonLst,LatLst,panoIDlist,panoDateList
     outLayer = data_source.CreateLayer(lyrname, targetSpatialRef, ogr.wkbPoint)
     numPnt = len(LonLst)
 
-    print 'the number of points is:',numPnt
+    print('the number of points is:',numPnt)
 
     if numPnt > 0:
         # create a field
@@ -195,7 +194,7 @@ def CreatePointFeature_ogr(outputShapefile,LonLst,LatLst,panoIDlist,panoDateList
         data_source.Destroy()
 
     else:
-        print 'You created a empty shapefile'
+        print('You created a empty shapefile')
 
 
 
@@ -205,8 +204,8 @@ if __name__ == "__main__":
     import os
     import sys
     
-    inputGVIres = r'MYPATHH/spatial-data/greenViewRes'
-    outputShapefile = 'MYPATHH/spatial-data/GreenViewRes.shp'
+    inputGVIres = r'C:\Users\alana\PycharmProjects\Treepedia_Public\Treepedia\output'
+    outputShapefile = r'C:\Users\alana\PycharmProjects\Treepedia_Public\Treepedia\spatial-data\GreenViewRes.shp'
     lyrname = 'greenView'
     [panoIDlist,panoDateList,LonLst,LatLst,greenViewList] = Read_GVI_res(inputGVIres)
     print ('The length of the panoIDList is:', len(panoIDlist))

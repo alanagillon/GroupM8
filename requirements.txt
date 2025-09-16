@@ -1,6 +1,6 @@
-pillow == 4.1.1
-xmltodict == 0.11.0
-numpy == 1.13.0
-matplotlib == 2.0.2
-shapely == 1.5.13
-fiona == 1.7.8
+pillow>=9.0.0
+xmltodict>=0.13.0
+numpy>=1.23.0
+matplotlib>=3.5.0
+requests>=2.28.0
+pandas>=1.4.0
